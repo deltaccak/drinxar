@@ -1,0 +1,992 @@
+ /* --- RESET Y CONFIGURACIÓN GENERAL --- */
+        :root {
+            --color-fondo: #121212;
+            --color-texto: #E0E0E0;
+            --color-dorado: #d4af37cf;
+            --color-dorado-sombra: rgba(212, 175, 55, 0.3);
+            --color-gris-oscuro: #1a1a1a;
+            --color-blanco: #FFFFFF;
+            --font-titulos: 'Cinzel', serif;
+            --font-texto: 'Poppins', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-texto);
+            background-color: var(--color-fondo);
+            color: var(--color-texto);
+            background-image: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 25%);
+            overflow-x: hidden;
+        }
+
+        .category-title i {
+    color: #ffd90096; /* dorado */
+    margin-right: 8px;
+}
+
+        section {
+            padding: 80px 5%;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-title {
+            font-family: var(--font-titulos);
+            font-size: 2.8rem;
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--color-blanco);
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .section-title span {
+            color: var(--color-dorado);
+        }
+
+
+
+
+
+        /* --- SECCIÓN DÓNDE COMPRAR --- */
+#donde-comprar {
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.8) 0%, rgba(18, 18, 18, 0.9) 100%);
+    border-top: 1px solid rgba(212, 175, 55, 0.2);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.donde-intro {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--color-texto);
+    margin-bottom: 50px;
+    font-weight: 300;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tiendas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.tienda-card {
+    background: linear-gradient(145deg, #1a1a1a, #252525);
+    border: 1px solid rgba(212, 175, 55, 0.15);
+    border-radius: 12px;
+    padding: 35px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+
+
+.tienda-card:hover::before {
+    transform: scaleX(1);
+}
+
+.tienda-card:hover {
+    transform: translateY(-4px);
+  
+    border-color: var(--color-dorado);
+}
+
+.tienda-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(212, 175, 55, 0.05));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    border: 2px solid rgba(212, 175, 55, 0.3);
+}
+
+.tienda-icon i {
+    font-size: 2rem;
+    color: var(--color-dorado);
+}
+
+.tienda-card h3 {
+    font-family: var(--font-titulos);
+    font-size: 1.6rem;
+    color: var(--color-blanco);
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.tienda-card p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--color-texto);
+    margin-bottom: 20px;
+    font-weight: 300;
+}
+
+.ubicacion {
+    display: inline-block;
+    font-size: 0.9rem;
+    color: var(--color-dorado);
+    font-weight: 500;
+    padding: 8px 15px;
+    background: rgba(212, 175, 55, 0.1);
+    border-radius: 20px;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.ubicacion i {
+    margin-right: 6px;
+}
+
+.compra-responsable {
+    background: rgba(212, 175, 55, 0.08);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 8px;
+    padding: 20px 30px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.compra-responsable i {
+    font-size: 1.5rem;
+    color: var(--color-dorado);
+}
+
+.compra-responsable p {
+    font-size: 0.95rem;
+    color: var(--color-texto);
+    margin: 0;
+    font-weight: 400;
+}
+
+        /* --- HEADER Y NAVEGACIÓN --- */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(18, 18, 18, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .logo {
+            font-family: var(--font-titulos);
+            font-size: 1.8rem;
+            color: var(--color-blanco);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .logo span {
+            color: var(--color-dorado);
+        }
+        
+        .navbar a {
+            font-size: 1rem;
+            color: var(--color-texto);
+            text-decoration: none;
+            margin-left: 35px;
+            transition: color 0.3s ease;
+        }
+
+        .navbar a:hover, .navbar a.active {
+            color: var(--color-dorado);
+        }
+
+        /* --- SECCIÓN HERO (INICIO) --- */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1587884936745-ac448a9c31fa?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
+            color: var(--color-blanco);
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-family: var(--font-titulos);
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--color-dorado);
+            color: var(--color-fondo);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--color-dorado);
+            border: 2px solid var(--color-dorado);
+            transform: translateY(-3px);
+        }
+
+        /* --- SECCIÓN CATEGORÍAS (CATÁLOGO) --- */
+        .category-container {
+            margin-bottom: 80px;
+        }
+        
+        .category-title {
+            font-family: var(--font-titulos);
+            font-size: 2.2rem;
+            color: var(--color-blanco);
+            margin-bottom: 40px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--color-dorado);
+            display: inline-block;
+        }
+        
+        .drinks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .drink-card {
+            background-color: var(--color-gris-oscuro);
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #2a2a2a;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .drink-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0px 8px var(--color-dorado-sombra);
+          
+        }
+
+        .drink-image-container {
+            width: 100%;
+            height: 300px; /* Altura fija para la imagen */
+            background-color: #252525;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        /* ESTILO PARA LA IMAGEN */
+        .drink-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Esto asegura que la botella se vea completa y centrada */
+        }
+
+        .drink-info {
+            padding: 25px;
+        }
+
+        .drink-info h3 {
+            font-family: var(--font-titulos);
+            font-size: 1.4rem;
+            color: var(--color-dorado);
+            margin-bottom: 10px;
+        }
+
+        .drink-info p {
+            font-size: 0.9rem;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        /* --- SECCIÓN MIXOLOGÍA --- */
+        .mixology-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+
+        .cocktail-card {
+            padding: 30px;
+            background-color: var(--color-gris-oscuro);
+            border: 1px solid #2a2a2a;
+            border-radius: 10px;
+        }
+
+        .cocktail-card h3 {
+            font-family: var(--font-titulos);
+            font-size: 1.8rem;
+            color: var(--color-dorado);
+            margin-bottom: 15px;
+        }
+
+        .cocktail-card p {
+            font-weight: 300;
+            line-height: 1.7;
+        }
+
+        /* --- FOOTER --- */
+        .footer {
+            background-color: #0a0a0a;
+            color: var(--color-texto);
+            text-align: center;
+            padding: 40px 5%;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        .footer-logo {
+            font-family: var(--font-titulos);
+            font-size: 2rem;
+            color: var(--color-blanco);
+            text-decoration: none;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        .footer-logo span {
+            color: var(--color-dorado);
+        }
+
+        .footer p {
+            font-size: 0.9rem;
+        }
+
+
+
+
+
+
+
+
+
+
+
+/* 1. HEADER - MÁS LIMPIO Y SOLO PARA EL LOGO */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* Altura mínima para que sea una barra sutil */
+    height: 70px; 
+    display: flex;
+    justify-content: center; /* Centramos el logo horizontalmente */
+    align-items: center;
+    background-color: var(--color-fondo-oscuro); 
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.1); 
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
+}
+
+.logo {
+    font-family: var(--font-titulos, sans-serif);
+    font-size: 2rem; 
+    padding-right: 500px;
+    color: var(--color-blanco);
+    text-decoration: none;
+    font-weight: 900;
+    /* Ajustamos el margen para que el logo no colisione con el menú lateral */
+    margin-left: -100px; 
+}
+
+.logo span {
+    color: var(--color-dorado);
+    font-weight: 800; 
+}
+
+/* Acciones en la esquina superior derecha (Inicio, Carrito, etc.) */
+.header-actions {
+    position: absolute;
+    right: 40px;
+}
+
+.action-btn {
+    font-size: 1rem;
+    color: var(--color-texto);
+    text-decoration: none;
+    padding: 10px 15px;
+    transition: color 0.3s ease;
+}
+
+.action-btn:hover {
+    color: var(--color-dorado);
+}
+
+/* 2. BARRA DE NAVEGACIÓN LATERAL ÚNICA */
+.sidebar-navbar {
+    position: fixed;
+    top: 50%; /* Lo bajamos un poco del centro */
+    left: 0;
+    transform: translateY(-50%); /* Centrado vertical perfecto */
+    z-index: 999;
+    width: 120px; /* Ancho de la barra lateral */
+    display: flex;
+    flex-direction: column; /* Apilamos los enlaces verticalmente */
+    background-color: var(--color-fondo-oscuro);
+    border-right: 2px solid var(--color-dorado-oscuro);
+    box-shadow: 2px 0 15px rgba(0, 0, 0, 0.5);
+    padding: 15px 0;
+}
+
+.sidebar-navbar a {
+    font-size: 0.95rem; 
+    color: var(--color-texto);
+    text-decoration: none;
+    padding: 12px 15px;
+    margin-bottom: 5px; /* Espacio entre los enlaces */
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    border-left: 3px solid transparent; /* Para el indicador activo/hover */
+}
+
+/* Efecto Hover: Más elegante, con cambio de color y línea lateral */
+.sidebar-navbar a:hover {
+    color: var(--color-blanco);
+    background-color: rgba(212, 175, 55, 0.05); /* Sutil fondo dorado */
+    border-left-color: var(--color-dorado); /* Línea dorada en el borde izquierdo */
+}
+
+/* Estilo Activo: Resaltado fuerte y sutil resplandor */
+.sidebar-navbar a.active {
+    color: var(--color-dorado);
+    font-weight: 700;
+    background-color: rgba(212, 175, 55, 0.1); 
+    border-left-color: var(--color-dorado);
+    text-shadow: 0 0 5px rgba(212, 175, 55, 0.5); /* Resplandor sutil */
+}
+
+ /* ============================================
+           RESPONSIVE - TABLETS (768px - 1024px)
+           ============================================ */
+        @media (max-width: 1024px) {
+            .section-title {
+                font-size: 2.3rem;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .category-title {
+                font-size: 1.9rem;
+            }
+
+            .drinks-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 25px;
+            }
+
+            .mixology-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+
+            /* Sidebar más estrecha en tablets */
+            .sidebar-navbar {
+                width: 100px;
+            }
+
+            .sidebar-navbar a {
+                font-size: 0.85rem;
+                padding: 10px 12px;
+            }
+        }
+
+        /* ============================================
+           RESPONSIVE - MÓVILES (hasta 768px)
+           ============================================ */
+        @media (max-width: 768px) {
+            /* Header móvil */
+            .header {
+                height: 60px;
+                justify-content: center;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            /* Mostrar menú hamburguesa */
+            .menu-toggle {
+                display: flex;
+                position: fixed;
+                top: 15px;
+                left: 15px;
+            }
+
+            /* Ajustar logo para dejar espacio al menú */
+            .logo {
+                font-size: 1.3rem;
+                margin-right: 50px;
+            }
+
+            /* Sidebar se transforma en menú móvil */
+            .sidebar-navbar {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 250px;
+                height: 100vh;
+                transform: translateX(-100%);
+                padding-top: 80px;
+                transition: transform 0.3s ease;
+                box-shadow: 5px 0 15px rgba(0, 0, 0, 0.5);
+                z-index: 998;
+            }
+
+            .sidebar-navbar.active {
+                transform: translateX(0);
+            }
+
+            /* Overlay oscuro cuando el menú está abierto */
+            body::after {
+                content: '';
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.7);
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 0.3s ease, visibility 0.3s ease;
+                z-index: 997;
+            }
+
+            body.menu-open::after {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .sidebar-navbar a {
+                font-size: 1rem;
+                padding: 15px 20px;
+                border-left: none;
+                border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            }
+
+            /* Hero móvil */
+            .hero {
+                min-height: 100vh;
+                padding: 0 20px;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+                line-height: 1.2;
+            }
+
+            .hero p {
+                font-size: 1rem;
+                margin-bottom: 30px;
+            }
+
+            .btn {
+                padding: 12px 25px;
+                font-size: 0.95rem;
+            }
+
+            /* Secciones móviles */
+            section {
+                padding: 60px 4%;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+                margin-bottom: 40px;
+            }
+
+            .category-title {
+                font-size: 1.5rem;
+                margin-bottom: 30px;
+            }
+
+            /* Grid de bebidas en móvil */
+            .drinks-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .drink-image-container {
+                height: 250px;
+            }
+
+            .drink-info {
+                padding: 20px;
+            }
+
+            .drink-info h3 {
+                font-size: 1.2rem;
+            }
+
+            .drink-info p {
+                font-size: 0.85rem;
+            }
+
+            /* Mixología en móvil */
+            .mixology-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .cocktail-card {
+                padding: 25px;
+            }
+
+            .cocktail-card h3 {
+                font-size: 1.5rem;
+            }
+
+            .cocktail-card p {
+                font-size: 0.9rem;
+            }
+
+            /* Footer móvil */
+            .footer {
+                padding: 30px 5%;
+            }
+
+            .footer-logo {
+                font-size: 1.6rem;
+            }
+
+            .footer p {
+                font-size: 0.85rem;
+            }
+        }
+
+        /* ============================================
+           RESPONSIVE - MÓVILES PEQUEÑOS (hasta 480px)
+           ============================================ */
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero p {
+                font-size: 0.9rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .category-title {
+                font-size: 1.3rem;
+            }
+
+            .drink-image-container {
+                height: 220px;
+            }
+
+            .drink-info h3 {
+                font-size: 1.1rem;
+            }
+
+            .drink-info p {
+                font-size: 0.8rem;
+            }
+
+            .sidebar-navbar {
+                width: 220px;
+            }
+
+            .cocktail-card h3 {
+                font-size: 1.3rem;
+            }
+        }
+
+        /* ============================================
+           LANDSCAPE MÓVIL (para evitar problemas)
+           ============================================ */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .hero {
+                min-height: 100vh;
+                padding: 100px 20px 50px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 0.9rem;
+                margin-bottom: 20px;
+            }
+        }
+
+
+
+
+
+::-webkit-scrollbar {
+    width: 12px; /* Ancho del scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background: #1a1a1a; /* Color de fondo de la barra */
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #ffd9006b, #ffc80084); /* Dorado degradado */
+    border-radius: 10px;
+    border: 3px solid #1a1a1a; /* Espacio entre el thumb y el track */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #ffe0667a, #ffd90098); /* Efecto hover */
+}
+
+/* Scrollbar para Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #ffd9008a #1a1a1a;
+}
+
+
+
+
+
+
+/* --- SECCIÓN POPULARES EN ARGENTINA --- */
+#populares-argentina {
+    background: var(--color-fondo);
+    position: relative;
+}
+
+#populares-argentina::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(212, 175, 55, 0.03) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.populares-intro {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--color-texto);
+    margin-bottom: 50px;
+    font-weight: 300;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.populares-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 35px;
+    margin-bottom: 60px;
+    position: relative;
+    z-index: 1;
+}
+
+.popular-card {
+    background: linear-gradient(145deg, #1a1a1a, #1f1f1f);
+    border: 1px solid #2a2a2a;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    position: relative;
+}
+
+.popular-card:hover {
+  
+    
+    border-color: var(--color-dorado);
+}
+
+
+
+.popular-badge i {
+    font-size: 0.9rem;
+}
+
+.popular-image-container {
+    width: 100%;
+    height: 320px;
+    background: linear-gradient(180deg, #252525 0%, #1a1a1a 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+.popular-image-container::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60%;
+    background: linear-gradient(to top, rgba(26, 26, 26, 0.9), transparent);
+    pointer-events: none;
+}
+
+.popular-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.4s ease;
+    position: relative;
+    z-index: 1;
+}
+
+
+.popular-info {
+    padding: 25px;
+}
+
+.categoria-tag {
+    display: inline-block;
+    background: rgba(212, 175, 55, 0.15);
+    color: var(--color-dorado);
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.popular-info h3 {
+    font-family: var(--font-titulos);
+    font-size: 1.6rem;
+    color: var(--color-blanco);
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.popular-info p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--color-texto);
+    margin-bottom: 20px;
+    font-weight: 300;
+}
+
+
+
+/* Dato Cultural */
+.dato-cultural {
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(212, 175, 55, 0.05));
+    border: 2px solid rgba(212, 175, 55, 0.3);
+    border-radius: 15px;
+    padding: 30px 40px;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.dato-cultural::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.1), transparent);
+    border-radius: 50%;
+}
+
+.dato-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, var(--color-dorado), rgba(212, 175, 55, 0.7));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+}
+
+.dato-icon i {
+    font-size: 2rem;
+    color: var(--color-fondo);
+}
+
+.dato-content {
+    position: relative;
+    z-index: 1;
+}
+
+.dato-content h4 {
+    font-family: var(--font-titulos);
+    font-size: 1.5rem;
+    color: var(--color-dorado);
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.dato-content p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-texto);
+    margin: 0;
+    font-weight: 300;
+}
