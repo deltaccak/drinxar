@@ -995,3 +995,9 @@
 
 
 
+
+/* FORZAR VISIBILIDAD DEL CATÁLOGO */
+section#catalogo {
+    opacity: 1;
+    transform: translateY(0);
+}
