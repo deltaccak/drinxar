@@ -992,12 +992,19 @@
 }
 
 
-
-
-
-
-/* FORZAR VISIBILIDAD DEL CATÁLOGO */
 section#catalogo {
+    opacity: 1;
+    transform: translateY(0);
+}
+section#populares-argentina {
+    opacity: 1;
+    transform: translateY(0);
+}
+section#donde-comprar {
+    opacity: 1;
+    transform: translateY(0);
+}
+section#destacados {
     opacity: 1;
     transform: translateY(0);
 }
