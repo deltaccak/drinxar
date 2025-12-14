@@ -241,24 +241,25 @@
 
         .hero h1 {
             font-family: var(--font-titulos);
-            font-size: 4rem;
+            font-size: 4.2rem;
             font-weight: 700;
             margin-bottom: 20px;
         }
 
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             margin-bottom: 40px;
             font-weight: 300;
         }
 
         .btn {
             display: inline-block;
-            padding: 12px 30px;
+            padding: 15px 33px;
             background-color: var(--color-dorado);
             color: var(--color-fondo);
             text-decoration: none;
             font-weight: 600;
+            font-size: 1.35rem;
             border-radius: 5px;
             transition: background-color 0.3s ease, transform 0.3s ease;
             border: 2px solid transparent;
@@ -1007,4 +1008,73 @@ section#donde-comprar {
 section#destacados {
     opacity: 1;
     transform: translateY(0);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Media Query para dispositivos con anchos menores a 768px (Móviles y Tablets) */
+@media (max-width: 768px) {
+    .navbar {
+        /* Para que los elementos puedan salirse si es necesario (scroll horizontal) */
+        overflow-x: auto; 
+        /* Para que los elementos NO salten a la siguiente línea */
+        flex-wrap: nowrap; 
+        /* Alineamos a la izquierda o al inicio */
+        justify-content: flex-start; 
+        /* Eliminamos el ancho máximo para que use el 100% de la pantalla */
+        max-width: 100%;
+        /* Quitamos el margen horizontal */
+        margin: 0;
+        /* Hacemos que los enlaces no tengan márgenes grandes */
+        padding: 0.5rem 0.5rem; /* Pequeño padding a los lados */
+    }
+
+    .navbar a {
+        /* Aseguramos que los enlaces ocupen lo mínimo necesario */
+        flex-shrink: 0; 
+        padding: 0.5rem 0.75rem; /* Reducimos el padding */
+        margin: 0 0.25rem; /* Reducimos el margen entre ellos */
+        font-size: 0.9rem; /* Opcional: reducimos el tamaño de la fuente */
+    }
+}/* Estilos generales para el header y la barra de navegación */
+.header {
+    background-color: #0000008f; /* Fondo oscuro, puedes cambiarlo */
+    color: white;
+    padding: 1rem 0;
+    position: sticky; /* O 'fixed' si quieres que siempre esté visible al hacer scroll */
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex; /* Usamos flexbox para alinear los enlaces */
+    justify-content: center; /* Centra los enlaces horizontalmente */
+    max-width: 1200px; /* Ancho máximo para el contenido */
+    margin: 0 auto; /* Centra el navbar en la página */
+    padding: 0 1rem;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none; /* Quita el subrayado de los enlaces */
+    padding: 0.5rem 1rem;
+    margin: 0 0.5rem;
+    transition: background-color 0.3s ease; /* Transición suave al pasar el ratón */
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.navbar a:hover {
+    background-color: #555; /* Fondo más claro al pasar el ratón */
 }
